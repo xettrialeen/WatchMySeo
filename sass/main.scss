@@ -1,0 +1,11 @@
+//todo from abstracts
+@import './abstracts/mixins';
+@import './abstracts/variables';
+
+
+// todo from base
+@import'./base/reset';
+@import './base/typography';
+
+// todo from pages
+@import "./pages/home.scss"

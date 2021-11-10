@@ -1,0 +1,25 @@
+@import "./typography";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    // border: 1px solid red;
+    font-family: $font;
+    // user-select: none;
+    scroll-behavior: smooth;
+}
+// html{
+//     max-width: 1600px;
+//     margin: 0 auto;
+// }
+// a{
+//     text-decoration: none;
+// }
+// li{
+//     list-style: none;
+// }
+// // html{
+// //     overflow: auto;
+// // }

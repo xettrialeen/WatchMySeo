@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+  
+    "name": "Watch My SEO",
+    "description": "This extension will grab seo contents",
+    "version": "2.0",
+  
+    "page_action": {
+     "default_icon": "./assets/down.svg",
+     "default_popup": "index.html"
+    },
+    "content_scripts":[
+        {
+            "matches":[
+                "<all_urls>"
+            ],
+            "js":["content.js"]
+        }
+    ],
+    "background":{
+        "scripts" : ["./js/background.js"]
+    }
+   
+    
+   
+     
+
+  }

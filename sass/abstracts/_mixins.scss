@@ -1,0 +1,41 @@
+
+// ** this is a media queries
+@mixin mq($type, $value) {
+    @media screen and(#{$type}-width:$value) {
+      @content;
+    }
+  }
+
+
+  @mixin imageFunc($height, $width) {
+    height: $height;
+    width: $width;
+  }
+  
+  @mixin font($size,$weight,$color){
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+   
+  }
+  @mixin flex-colum() {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @mixin flex-row() {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+  }
+
+  @mixin Center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
