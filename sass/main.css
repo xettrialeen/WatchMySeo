@@ -32,6 +32,11 @@ body::-webkit-scrollbar-thumb {
   padding-left: 20px;
   padding-right: 20px;
 }
+@media screen and (max-width: 414px) {
+  .container {
+    width: 100%;
+  }
+}
 .container .container-wrapper header {
   margin-top: 21px;
   display: flex;
@@ -83,17 +88,27 @@ body::-webkit-scrollbar-thumb {
 }
 .container .container-wrapper .first-section .row-container {
   margin-top: 22px;
-  width: 100%;
 }
 .container .container-wrapper .first-section .row-container .row-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+@media screen and (max-width: 414px) {
+  .container .container-wrapper .first-section .row-container .row-wrapper {
+    flex-wrap: wrap;
+  }
+}
 .container .container-wrapper .first-section .row-container .row-wrapper .card {
   width: 84px;
   height: 123px;
   border-radius: 10px;
+}
+@media screen and (max-width: 414px) {
+  .container .container-wrapper .first-section .row-container .row-wrapper .card {
+    flex-wrap: wrap;
+    margin: 5px;
+  }
 }
 .container .container-wrapper .first-section .row-container .row-wrapper .card:nth-child(1) {
   background: #fffccd;
