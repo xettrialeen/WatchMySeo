@@ -1,0 +1,72 @@
+.tabs-menu {
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  width: 414px;
+  height: 44px;
+  background: #131313;
+  box-shadow: 4px 8px 19px 6px #000000;
+  .tabsm-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    button {
+      flex: 1;
+      background: #131313;
+
+      border: none;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+
+      img {
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
+      }
+
+      opacity: 60%;
+      transition: opacity 0.3s ease-in-out;
+      -webkit-transition: opacity 0.3s ease-in-out;
+      -moz-transition: opacity 0.3s ease-in-out;
+      -ms-transition: opacity 0.3s ease-in-out;
+      -o-transition: opacity 0.3s ease-in-out;
+      &:hover {
+        opacity: 100%;
+      }
+    }
+  }
+}
+
+.tabs-container {
+  position: relative;
+  .tab-panel {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+    &.active {
+      opacity: 100% !important;
+      position: absolute;
+      top: 0px;
+      visibility: visible;
+    }
+  }
+}
+
+.tab2,.tab3 {
+  
+
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+
+ 
+}

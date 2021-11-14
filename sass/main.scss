@@ -1,11 +1,17 @@
 //todo from abstracts
-@import './abstracts/mixins';
-@import './abstracts/variables';
-
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
 
 // todo from base
-@import'./base/reset';
-@import './base/typography';
+@import "./base/reset";
+@import "./base/typography";
 
 // todo from pages
-@import "./pages/home.scss"
+@import "./pages/home.scss";
+@import "./pages/donations";
+
+// todo from components
+@import "./components/animations";
+@import "./components/thirdSection";
+@import "./components/fourthSection";
+@import "./components/tabsMenu";

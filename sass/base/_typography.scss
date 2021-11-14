@@ -11,3 +11,14 @@ $normal-text: 16px;
 $secondary-text: 14px;
 
 
+
+.heading2{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+    color:rgb(122, 255, 255);
+}

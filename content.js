@@ -1,37 +1,79 @@
-// console.log("hello");
-// let queryTitles = document
-//   .querySelector("meta[name='description']")
-//   .getAttribute("content");
+function pageTitle() {
+  let pageTitle = document.getElementsByTagName("TITLE")[0];
+  // document.querySelector("title");
+  return pageTitle.innerText;
+}
 
-// console.log(queryTitles);
-
-// Inform the background page that
-// this tab should have a page-action.
-chrome.runtime.sendMessage({
-  from: "content",
-  subject: "showPageAction",
-});
-
-// Listen for messages from the popup.
-chrome.runtime.onMessage.addListener((msg, sender, response) => {
-  // First, validate the message's structure.
-  if (msg.from === "popup" && msg.subject === "DOMInfo") {
-    // Collect the necessary data.
-    // (For your specific requirements `document.querySelectorAll(...)`
-    //  should be equivalent to jquery's `$(...)`.)
-    var domInfo = {
-      description: document
-        .querySelector("meta[name='description']")
-        .getAttribute("content"),
+function metaTag(name) {
+  if (document.querySelector(`meta[name='${name}']`)) {
+    let metaTag = document
+      .querySelector(`meta[name='${name}']`)
      
-    };
 
-    // Directly respond to the sender (popup),
-    // through the specified callback.
-    response(domInfo);
+    return metaTag.content;
+  }else{
+    return "OOOPS Not Found! ...";
   }
-});
 
-// let pageTitle = document.querySelector(".description-content");
-// //   pageTitle.innerHTML = queryTitles;
-// console.log(pageTitle.innerHTML);
+
+}
+
+function openG(name) {
+  let openG = document.querySelector(`meta[property='${name}']`);
+  return openG;
+}
+
+function headings(name, length) {
+  if (length === "no") {
+    let headingName = document.querySelectorAll(`${name}`);
+    return headingName;
+  } else if (length === "yes") {
+    let headingName = document.querySelectorAll(`${name}`).length;
+    return headingName;
+  }
+}
+
+function imageAlt() {
+  let article = document.querySelectorAll("img");
+  let images = [];
+
+  article.forEach((e, i) => {
+    if (e.getAttribute("alt")) {
+      images.push({
+        img: e.getAttribute("src"),
+        alt: e.getAttribute("alt"),
+      });
+    }
+  });
+
+  return images;
+}
+
+function totalWordsCount() {
+  if (document.querySelector("article")) {
+    var bodyScripts = document.querySelectorAll("body script");
+    for (var i = 0; i < bodyScripts.length; i++) {
+      bodyScripts[i].remove();
+    }
+    let totalWords = document
+      .querySelector("article")
+      .innerText.replace(/\s+/g, "").length;
+    return totalWords;
+  }
+
+  return "No Articles Found!";
+}
+
+chrome.runtime.sendMessage({
+  pageTitle: pageTitle(),
+  metaTag: metaTag("description"),
+
+  totalWords: totalWordsCount(),
+  fbOg: openG("og:type"),
+  twOg: openG("twitter:title"),
+  headingOne: headings("h1", "yes"),
+  headingTwo: headings("h2", "yes"),
+  headingThree: headings("h3", "yes"),
+  headingFour: headings("h4", "yes"),
+  imageAlts: imageAlt(),
+});
