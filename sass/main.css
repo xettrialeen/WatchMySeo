@@ -282,7 +282,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 .tabTwo-wrapper .ttw-header {
-  width: 246px;
+  width: 254px;
   display: flex;
   flex-direction: column;
   padding-top: 43px;
@@ -295,11 +295,11 @@ body::-webkit-scrollbar-thumb {
 }
 .tabTwo-wrapper .ttw-header .profile-description p {
   font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
   letter-spacing: 0.01em;
-  color: #ffffff;
+  color: #535351;
 }
 .tabTwo-wrapper .ttw-header .ttwh-wrapper {
   display: flex;
@@ -307,8 +307,8 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
 }
 .tabTwo-wrapper .ttw-header .ttwh-wrapper section:nth-child(1) img {
-  width: 81px;
-  height: 81px;
+  width: 89px;
+  height: 89px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -324,8 +324,8 @@ body::-webkit-scrollbar-thumb {
 .tabTwo-wrapper .ttw-header .ttwh-wrapper section:nth-child(2) h2 {
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 22px;
+  line-height: 33px;
   letter-spacing: 0.01em;
   color: #ffffff;
 }
@@ -335,7 +335,7 @@ body::-webkit-scrollbar-thumb {
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
   margin-bottom: 5px;
 }
 .tabTwo-wrapper .ttw-header .ttwh-wrapper section:nth-child(2) .profile-title-icons {
@@ -346,6 +346,8 @@ body::-webkit-scrollbar-thumb {
 .tabTwo-wrapper .ttw-header .ttwh-wrapper section:nth-child(2) .profile-title-icons img {
   cursor: pointer;
   opacity: 0.5;
+  width: 16px;
+  height: 16px;
   transition: opacity 0.3s ease-in-out;
   -webkit-transition: opacity 0.3s ease-in-out;
   -moz-transition: opacity 0.3s ease-in-out;
@@ -375,7 +377,6 @@ body::-webkit-scrollbar-thumb {
 .tabTwo-wrapper .app-version .av-wrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
   background: #0f0f0f;
   border-radius: 12px;
@@ -390,10 +391,12 @@ body::-webkit-scrollbar-thumb {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 .tabTwo-wrapper .app-version .av-wrapper .app-data .app-logo {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
 }
 .tabTwo-wrapper .app-version .av-wrapper .app-data .app-logo img {
   width: 29px;
@@ -418,7 +421,7 @@ body::-webkit-scrollbar-thumb {
 .tabTwo-wrapper .app-version .av-wrapper .app-data .app-title span {
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 15px;
   display: flex;
   align-items: center;
@@ -428,7 +431,7 @@ body::-webkit-scrollbar-thumb {
 .tabTwo-wrapper .app-version .av-wrapper .app-data .app-title p {
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 15px;
   display: flex;
   align-items: center;
@@ -443,7 +446,8 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
+  justify-content: space-between;
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
   -webkit-transition: opacity 0.3s ease-in-out;
@@ -465,7 +469,7 @@ body::-webkit-scrollbar-thumb {
 .tabTwo-wrapper .app-version .av-wrapper .app-update span {
   font-style: normal;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 14px;
   line-height: 15px;
   display: flex;
   align-items: center;
@@ -485,7 +489,6 @@ body::-webkit-scrollbar-thumb {
   background: #0f0f0f;
   border-radius: 12px;
   padding: 20px;
-  height: 326px;
 }
 .tabTwo-wrapper .support .support-wrapper {
   display: flex;
@@ -497,7 +500,7 @@ body::-webkit-scrollbar-thumb {
 .tabTwo-wrapper .support .support-wrapper .sw-title h3 {
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 27px;
   display: flex;
   align-items: center;
@@ -507,18 +510,19 @@ body::-webkit-scrollbar-thumb {
 }
 .tabTwo-wrapper .support .support-wrapper .sw-title p {
   font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
+  font-weight: 200;
+  font-size: 12px;
   line-height: 21px;
   display: flex;
   align-items: center;
   letter-spacing: 0.01em;
-  color: #535351;
+  color: #ffffff;
 }
 .tabTwo-wrapper .support .support-wrapper .sw-card {
   margin-bottom: 31px;
   display: flex;
   flex-direction: row;
+  margin-top: 12px;
 }
 .tabTwo-wrapper .support .support-wrapper .sw-card img {
   width: 76px;
@@ -529,11 +533,14 @@ body::-webkit-scrollbar-thumb {
 }
 .tabTwo-wrapper .support .support-wrapper .sw-card p {
   font-style: normal;
-  font-weight: 300;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 16px;
   line-height: 18px;
   letter-spacing: 0.01em;
-  color: #ffffff;
+  color: #535351;
+}
+.tabTwo-wrapper .support .support-wrapper .sw-donation {
+  margin-bottom: 45px;
 }
 .tabTwo-wrapper .support .support-wrapper .sw-donation section:nth-child(1) {
   margin-bottom: 11px;
@@ -551,7 +558,7 @@ body::-webkit-scrollbar-thumb {
 }
 .tabTwo-wrapper .support .support-wrapper .sw-donation section:nth-child(1) button, .tabTwo-wrapper .support .support-wrapper .sw-donation section:nth-child(2) button {
   width: 100%;
-  height: 42px;
+  height: 48px;
   background: linear-gradient(180deg, #161616 0%, rgba(22, 22, 22, 0) 100%);
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
