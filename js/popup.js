@@ -121,6 +121,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       let imageAltParent = document.querySelector(".fsr-wrapper");
       let imageData = request.imageAlts;
       let seeMoreImage = document.querySelector(".seeMoreImage");
+      let url= request.url.charAt(0).toUpperCase() + request.url.slice(1);
       for (let i = 0; i < 4; i++) {
         const e = imageData[i];
         imageAltParent.innerHTML += `
@@ -151,7 +152,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             <img class="fsr-image" src="${e.img}" alt="">
             <div class="fsrcw-title " 
              >
-                <h3>Image ${i + 1}</h3>
+                <h3>${url} Img ${i + 1}</h3>
                 <p>${e.alt}</p>
             </div>
         </div>
@@ -176,7 +177,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
              }" alt=""></div>
               <div class="fsrcw-title skeleton" 
                >
-                  <h3>Image ${i + 1}</h3>
+                  <h3>${url} Img ${i + 1}</h3>
                   <p>${e.alt}</p>
               </div>
           </div>
@@ -196,7 +197,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
               <img class="fsr-image" src="${e.img}" alt="">
               <div class="fsrcw-title " 
                >
-                  <h3>Image ${i + 1}</h3>
+                  <h3>${url} Img ${i + 1}</h3>
                   <p>${e.alt}</p>
               </div>
           </div>
