@@ -5,15 +5,11 @@ function pageTitle() {
 }
 
 function url() {
-  // todo this will detect url and sorts and take name of website
-  // *** suppose you have www.facebook.com it will split ["www","facebook",".com"]
-  // ? then returns facebook string
   let url = window.location.toString();
   if (url.split(".").length >= 3) {
     return url.split(".")[1];
-  } else {
-    return url.split(".")[0].split("https://")[1];
   }
+  return url.split(".")[0].split("https://")[1];
 }
 
 
@@ -21,11 +17,9 @@ function url() {
 function metaTag(name) {
   if (document.querySelector(`meta[name='${name}']`)) {
     let metaTag = document.querySelector(`meta[name='${name}']`);
-
     return metaTag.content;
-  } else {
-    return "OOOPS Not Found! ...";
   }
+  return "OOOPS Not Found! ...";
 }
 
 function openG(name) {
@@ -37,10 +31,12 @@ function headings(name, length) {
   if (length === "no") {
     let headingName = document.querySelectorAll(`${name}`);
     return headingName;
-  } else if (length === "yes") {
+  } 
+  if (length === "yes") {
     let headingName = document.querySelectorAll(`${name}`).length;
     return headingName;
   }
+  throw new Error()
 }
 
 function imageAlt() {
