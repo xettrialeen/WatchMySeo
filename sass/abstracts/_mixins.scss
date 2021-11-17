@@ -39,3 +39,21 @@
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
   }
+
+  @mixin scrollBar(){
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      width: 13px;
+      height: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background: 0 0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #1d2731;
+      border-radius: 20px;
+      box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.25),
+        inset -2px -2px 2px rgba(0, 0, 0, 0.2);
+    }
+  }

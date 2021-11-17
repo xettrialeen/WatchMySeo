@@ -1,11 +1,11 @@
-  /* _                                                                                                            
+/* _                                                                                                            
  _____         _    _  _                              _                     _                             _ 
 | __  | _ _  _| | _| || |_  ___    _ _ _  ___  ___   | |_  ___  ___  ___   |_| ___    ___  ___  ___  ___ | |
 | __ -|| | || . || . ||   || .'|  | | | || .'||_ -|  | . || . ||  _||   |  | ||   |  |   || -_|| . || .'|| |
 |_____||___||___||___||_|_||__,|  |_____||__,||___|  |___||___||_|  |_|_|  |_||_|_|  |_|_||___||  _||__,||_|
                                                                                                |_|          
 
-    */ 
+    */
 
 chrome.tabs.executeScript(null, {
   file: "./content.js",
@@ -27,6 +27,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       // -----------------------------------------------------------
 
       // todo working on pageDescription and title
+  
 
       // ** this is page title for chrome extension
       let pageTitle = document.querySelector(".meta-title");
@@ -96,6 +97,177 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         headO.innerText = `Used for ${request.headingOne} times `;
       }
 
+      //todo this is for popup headings
+      let popUpBox,
+        headingOne,
+        headOnePopup,
+        closeBtn,
+        cardStyle,
+        headingOneData,
+        headingTwo,
+        headingTwoData,
+        headTwoPopup,
+        headingThree,
+        headingThreeData,
+        headThreePopup;;
+        
+      headingOne = document.querySelector(".headingOne");
+     
+      headOnePopup = document.querySelector(".headOneData");
+      closeBtn = document.querySelectorAll(".closeBtn");
+      popUpBox = document.querySelectorAll(".popupBox ");
+      headingOneData = request.headingOneData;
+
+      
+      let headOneLoop = document.querySelector(".headOneLoop");
+
+      for (let i = 0; i < headingOneData.length; i++) {
+        let e = headingOneData[i];
+
+        headOneLoop.innerHTML += `
+          <div class="pcw-card">
+          <span>${i}</span>
+          <h3>${e}</h3>
+      </div>
+          `;
+        
+      }
+      headingOne.addEventListener("click", () => {
+        
+        let cardStyle = document.querySelectorAll(".pcw-card");
+        headOnePopup.style = `opacity:100%; visibility:visible`;
+        cardStyle.forEach((e) => {
+         e.classList.add("skeleton")
+         setTimeout(() => {
+          e.classList.remove("skeleton")
+        }, 2000);
+        });
+      
+      
+      
+       
+     
+      });
+
+      // working on headingsTwo
+      let headTwoLoop = document.querySelector(".headTwoLoop");
+      headingTwo = document.querySelector(".headingTwo");
+      headTwoPopup = document.querySelector(".headTwoData");
+      headingTwoData = request.headingTwoData;
+      for (let i = 0; i < headingTwoData.length; i++) {
+        let e = headingTwoData[i];
+        if (i <= 9) {
+          headTwoLoop.innerHTML += `
+          <div class="pcw-card ">
+          <span>0${i}</span>
+          <h3>${e}</h3>
+      </div>
+          `;
+        } else {
+          headTwoLoop.innerHTML += `
+          <div class="pcw-card ">
+          <span>${i}</span>
+          <h3>${e}</h3>
+      </div>
+          `;
+        }
+      }
+
+      headingTwo.addEventListener("click", () => {
+        let cardStyle = document.querySelectorAll(".pcw-card");
+        headTwoPopup.style = `opacity:100%; visibility:visible`;
+        cardStyle.forEach((e) => {
+          e.classList.add("skeleton")
+          setTimeout(() => {
+           e.classList.remove("skeleton")
+         }, 2000);
+         });
+    
+      
+      });
+
+      // todo working for headThree
+      let headThreeLoop = document.querySelector(".headThreeLoop");
+      headingThree= document.querySelector(".headingThree");
+      headThreePopup= document.querySelector(".headThreeData");
+      headingThreeData = request.headingThreeData;
+
+      for (let i = 0; i < headingThreeData.length; i++) {
+        let e = headingThreeData[i];
+        if (i <= 9) {
+          headThreeLoop.innerHTML += `
+          <div class="pcw-card ">
+          <span>0${i}</span>
+          <h3>${e}</h3>
+      </div>
+          `;
+        } else {
+          headThreeLoop.innerHTML += `
+          <div class="pcw-card ">
+          <span>${i}</span>
+          <h3>${e}</h3>
+      </div>
+          `;
+        }
+      }
+      headingThree.addEventListener("click", () => {
+        let cardStyle = document.querySelectorAll(".pcw-card");
+        headThreePopup.style = `opacity:100%; visibility:visible`;
+        cardStyle.forEach((e) => {
+          e.classList.add("skeleton")
+          setTimeout(() => {
+           e.classList.remove("skeleton")
+         }, 2000);
+         });
+    
+     
+      });
+
+      // todo working for headFour
+      let headFourLoop,headingFour,headFourPopup,headingFourData;
+      headFourLoop = document.querySelector(".headFourLoop");
+      headingFour= document.querySelector(".headingFour");
+      headFourPopup= document.querySelector(".headFourData");
+      headingFourData = request.headingFourData;
+
+      for (let i = 0; i < headingFourData.length; i++) {
+        let e = headingFourData[i];
+        if (i <= 9) {
+          headFourLoop.innerHTML += `
+          <div class="pcw-card ">
+          <span>0${i}</span>
+          <h3>${e}</h3>
+      </div>
+          `;
+        } else {
+          headFourLoop.innerHTML += `
+          <div class="pcw-card ">
+          <span>${i}</span>
+          <h3>${e}</h3>
+      </div>
+          `;
+        }
+      }
+      headingFour.addEventListener("click", () => {
+        let cardStyle = document.querySelectorAll(".pcw-card");
+        headFourPopup.style = `opacity:100%; visibility:visible`;
+        cardStyle.forEach((e) => {
+          e.classList.add("skeleton")
+          setTimeout(() => {
+           e.classList.remove("skeleton")
+         }, 2000);
+         });
+    
+     
+      });
+      closeBtn.forEach((e) => {
+        e.addEventListener("click", () => {
+          popUpBox.forEach((e) => {
+            e.style = `opacity:0%; visibility:hidden`;
+          });
+        });
+      });
+
       headT = document.querySelector(".head-two");
       if (request.headingTwo === 1) {
         headT.innerText = `Used for a ${request.headingTwo} time `;
@@ -117,11 +289,48 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         headF.innerText = `Used for ${request.headingFour} times `;
       }
 
+      // todo this is for finidning all <a href links>
+      let internalExtension,
+        externalExtension,
+        hrefData,
+        internalLinks,
+        hrefArray,
+        externaLinks;
+      let url = request.url.charAt(0).toUpperCase() + request.url.slice(1);
+
+      internalExtension = document.querySelector(".internalData");
+      externalExtension = document.querySelector(".externalData");
+      hrefData = request.hrefLink;
+      hrefArray = [];
+      internalLinks = [];
+      externaLinks = [];
+      for (let i = 0; i < hrefData.length; i++) {
+        const element = hrefData[i][1];
+        hrefArray.push(element);
+      }
+
+      if (hrefArray.includes(url.toLowerCase())) {
+        console.log(hrefArray);
+      }
+
+      //  ? starting to work for internal links
+      hrefArray.forEach((e) => {
+        if (e.includes(url.toLowerCase())) {
+          internalLinks.push(e);
+        } else {
+          externaLinks.push(e);
+        }
+      });
+
+      internalExtension.innerHTML = `${internalLinks.length} Links Detected`;
+      externalExtension.innerHTML = ` ${externaLinks.length} Links Detected`;
+      //  ? starting to work for external links
+
       //todo loopping imageAlt card from here
       let imageAltParent = document.querySelector(".fsr-wrapper");
       let imageData = request.imageAlts;
       let seeMoreImage = document.querySelector(".seeMoreImage");
-      let url= request.url.charAt(0).toUpperCase() + request.url.slice(1);
+
       for (let i = 0; i < 4; i++) {
         const e = imageData[i];
         imageAltParent.innerHTML += `
@@ -145,7 +354,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
         setTimeout(() => {
           if (imageAltParent.innerHTML.search("skeleton")) {
-            console.log("there is");
             imageAltParent.innerHTML += `
         <section class="fsr-card ">
         <div class="fsrc-wrapper">
@@ -160,13 +368,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         `;
           }
         }, 2000);
-        
       }
-      
+
       // todo when the seemore button is clicked the images will loop more
       // ---------------------------------------------------------------------------------------------------
       // **--------------------------------------------------------------------------------------------------------------
-                                                                                            seeMoreImage.addEventListener("click", () => {
+      seeMoreImage.addEventListener("click", () => {
         for (let i = 0; i < imageData.length; i++) {
           const e = imageData[i];
           imageAltParent.innerHTML += `

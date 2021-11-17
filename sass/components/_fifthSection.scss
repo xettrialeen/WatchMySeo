@@ -1,0 +1,107 @@
+.fifth-section {
+  margin-top: 25px;
+  .heading2 {
+    margin-bottom: 22px;
+
+    span {
+      margin-left: 6px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 18px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+  .fs-row {
+    margin-bottom: 20px;
+    .tsr-card {
+     
+      cursor: pointer;
+      width: 374px;
+      height: 58px;
+      background: #131313;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 15px;
+      padding-bottom: 16px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      opacity: 50%;
+
+      span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.01em;
+      
+      }
+
+      &:hover{
+      opacity: 100%;
+      }
+      transition:opacity 0.3s ease-in-out ;
+      -webkit-transition:opacity 0.3s ease-in-out ;
+      -moz-transition:opacity 0.3s ease-in-out ;
+      -ms-transition:opacity 0.3s ease-in-out ;
+      -o-transition:opacity 0.3s ease-in-out ;
+}
+
+    .fsr-wrapper {
+      display: flex;
+      flex-direction: column;
+
+    
+      .fsr-card {
+        margin-bottom: 20px;
+        .fsrc-wrapper {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          img {
+            width: 76.41px;
+            height: 76.41px;
+            border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -ms-border-radius: 2px;
+            -o-border-radius: 2px;
+            margin-right: 22px;
+            object-fit: cover;
+          }
+          .fsrcw-title {
+            h3 {
+              font-family: Poppins;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 20px;
+              line-height: 30px;
+              letter-spacing: 0.01em;
+
+              color: #ffffff;
+              margin-bottom: 3px;
+            }
+            p {
+              font-family: Poppins;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 14px;
+              line-height: 21px;
+              color: rgba(255, 255, 255, 0.5);
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+  }
+}

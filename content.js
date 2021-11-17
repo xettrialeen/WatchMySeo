@@ -16,8 +16,6 @@ function url() {
   }
 }
 
-
-
 function metaTag(name) {
   if (document.querySelector(`meta[name='${name}']`)) {
     let metaTag = document.querySelector(`meta[name='${name}']`);
@@ -36,11 +34,30 @@ function openG(name) {
 function headings(name, length) {
   if (length === "no") {
     let headingName = document.querySelectorAll(`${name}`);
-    return headingName;
+    let headingData = [];
+    headingName.forEach((e) => {
+      headingData.push(e.innerText);
+    });
+    return headingData;
   } else if (length === "yes") {
     let headingName = document.querySelectorAll(`${name}`).length;
     return headingName;
   }
+}
+
+
+// this is for finding <a links in website>
+function href() {
+  var x = document.querySelectorAll("a");
+  var myarray = [];
+  for (var i = 0; i < x.length; i++) {
+    var nametext = x[i].textContent;
+    var cleantext = nametext.replace(/\s+/g, " ").trim();
+    var cleanlink = x[i].href;
+    myarray.push([cleantext, cleanlink]);
+  }
+
+  return myarray;
 }
 
 function imageAlt() {
@@ -77,14 +94,18 @@ function totalWordsCount() {
 chrome.runtime.sendMessage({
   pageTitle: pageTitle(),
   metaTag: metaTag("description"),
-
   totalWords: totalWordsCount(),
   fbOg: openG("og:type"),
   twOg: openG("twitter:title"),
   headingOne: headings("h1", "yes"),
+  headingOneData: headings("h1", "no"),
   headingTwo: headings("h2", "yes"),
+  headingTwoData: headings("h2", "no"),
   headingThree: headings("h3", "yes"),
+  headingThreeData: headings("h3", "no"),
   headingFour: headings("h4", "yes"),
+  headingFourData: headings("h4", "no"),
+  hrefLink: href(),
   imageAlts: imageAlt(),
-  url:url(),
+  url: url(),
 });
