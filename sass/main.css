@@ -1131,6 +1131,75 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
 }
+.popupBox .pb-wrapper .popup-cards .pc-wrapper .aLink-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-bottom: 12px;
+}
+.popupBox .pb-wrapper .popup-cards .pc-wrapper .aLink-card h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+.popupBox .pb-wrapper .popup-cards .pc-wrapper .aLink-card span {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 33px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-right: 19px;
+}
+.popupBox .pb-wrapper .popup-cards .pc-wrapper .aLink-card .alink-titles p {
+  overflow: hidden;
+  margin-top: 4px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  white-space: pre-wrap;
+  /* CSS3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+  opacity: 50%;
+  transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+}
+.popupBox .pb-wrapper .popup-cards .pc-wrapper .aLink-card .alink-titles p:hover {
+  opacity: 100%;
+}
+.popupBox .pb-wrapper .popup-cards .pc-wrapper .aLink-card .alink-titles p a {
+  color: #ffffff;
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
 .popupBox .pb-wrapper .popup-cards .pc-wrapper .pcw-card {
   display: flex;
   flex-direction: row;

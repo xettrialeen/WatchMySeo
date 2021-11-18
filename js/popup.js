@@ -27,7 +27,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       // -----------------------------------------------------------
 
       // todo working on pageDescription and title
-  
 
       // ** this is page title for chrome extension
       let pageTitle = document.querySelector(".meta-title");
@@ -109,16 +108,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         headTwoPopup,
         headingThree,
         headingThreeData,
-        headThreePopup;;
-        
+        headThreePopup;
+
       headingOne = document.querySelector(".headingOne");
-     
+
       headOnePopup = document.querySelector(".headOneData");
       closeBtn = document.querySelectorAll(".closeBtn");
       popUpBox = document.querySelectorAll(".popupBox ");
       headingOneData = request.headingOneData;
 
-      
       let headOneLoop = document.querySelector(".headOneLoop");
 
       for (let i = 0; i < headingOneData.length; i++) {
@@ -130,23 +128,16 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
           <h3>${e}</h3>
       </div>
           `;
-        
       }
       headingOne.addEventListener("click", () => {
-        
         let cardStyle = document.querySelectorAll(".pcw-card");
         headOnePopup.style = `opacity:100%; visibility:visible`;
         cardStyle.forEach((e) => {
-         e.classList.add("skeleton")
-         setTimeout(() => {
-          e.classList.remove("skeleton")
-        }, 2000);
+          e.classList.add("skeleton");
+          setTimeout(() => {
+            e.classList.remove("skeleton");
+          }, 2000);
         });
-      
-      
-      
-       
-     
       });
 
       // working on headingsTwo
@@ -177,19 +168,17 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         let cardStyle = document.querySelectorAll(".pcw-card");
         headTwoPopup.style = `opacity:100%; visibility:visible`;
         cardStyle.forEach((e) => {
-          e.classList.add("skeleton")
+          e.classList.add("skeleton");
           setTimeout(() => {
-           e.classList.remove("skeleton")
-         }, 2000);
-         });
-    
-      
+            e.classList.remove("skeleton");
+          }, 2000);
+        });
       });
 
       // todo working for headThree
       let headThreeLoop = document.querySelector(".headThreeLoop");
-      headingThree= document.querySelector(".headingThree");
-      headThreePopup= document.querySelector(".headThreeData");
+      headingThree = document.querySelector(".headingThree");
+      headThreePopup = document.querySelector(".headThreeData");
       headingThreeData = request.headingThreeData;
 
       for (let i = 0; i < headingThreeData.length; i++) {
@@ -214,20 +203,18 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         let cardStyle = document.querySelectorAll(".pcw-card");
         headThreePopup.style = `opacity:100%; visibility:visible`;
         cardStyle.forEach((e) => {
-          e.classList.add("skeleton")
+          e.classList.add("skeleton");
           setTimeout(() => {
-           e.classList.remove("skeleton")
-         }, 2000);
-         });
-    
-     
+            e.classList.remove("skeleton");
+          }, 2000);
+        });
       });
 
       // todo working for headFour
-      let headFourLoop,headingFour,headFourPopup,headingFourData;
+      let headFourLoop, headingFour, headFourPopup, headingFourData;
       headFourLoop = document.querySelector(".headFourLoop");
-      headingFour= document.querySelector(".headingFour");
-      headFourPopup= document.querySelector(".headFourData");
+      headingFour = document.querySelector(".headingFour");
+      headFourPopup = document.querySelector(".headFourData");
       headingFourData = request.headingFourData;
 
       for (let i = 0; i < headingFourData.length; i++) {
@@ -252,14 +239,155 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         let cardStyle = document.querySelectorAll(".pcw-card");
         headFourPopup.style = `opacity:100%; visibility:visible`;
         cardStyle.forEach((e) => {
-          e.classList.add("skeleton")
+          e.classList.add("skeleton");
           setTimeout(() => {
-           e.classList.remove("skeleton")
-         }, 2000);
-         });
-    
-     
+            e.classList.remove("skeleton");
+          }, 2000);
+        });
       });
+      // todo this is for finidning all <a href links>
+      let internalExtension,
+        externalExtension,
+        hrefData,
+        internalLinks,
+        hrefArray,
+        externaLinks;
+      let url = request.url.charAt(0).toUpperCase() + request.url.slice(1);
+
+      internalExtension = document.querySelector(".internalData");
+      externalExtension = document.querySelector(".externalData");
+      hrefData = request.hrefLink;
+      hrefArray = [];
+      internalLinks = [];
+      externaLinks = [];
+      for (let i = 0; i < hrefData.length; i++) {
+        const element = hrefData[i];
+        hrefArray.push({ name: element[0], link: element[1] });
+      }
+
+      //  ? starting to work for internal links
+      hrefArray.forEach((e) => {
+        if (e.link.includes(url.toLowerCase())) {
+          internalLinks.push({ name: e.name, link: e.link });
+        } else {
+          externaLinks.push({ name: e.name, link: e.link });
+        }
+      });
+
+      internalExtension.innerHTML = `${internalLinks.length} Links Detected`;
+      externalExtension.innerHTML = ` ${externaLinks.length} Links Detected`;
+      //  ? starting to work for external links
+      //todo working with internal Link
+      let internalData, internalPopup, internalButton, internalLoop;
+      internalData = internalLinks;
+      internalPopup = document.querySelector(".internalLinksPopup");
+      internalButton = document.querySelector(".internalButton");
+      internalLoop = document.querySelector(".internalLoop");
+      for (let i = 0; i < internalData.length; i++) {
+        let e = internalData[i];
+        if (i <= 9) {
+          internalLoop.innerHTML += `
+          <div class="aLink-card">
+          <span>0${i}</span>
+          <div class="alink-titles">
+              <h3>${e.name}</h3>
+
+              <p><a class="aLink" href="${e.link}" target="_blank"
+                      rel="noopener noreferrer">${e.link}</a>
+              </p>
+          </div>
+      </div>
+          `;
+        } else {
+          internalLoop.innerHTML += `
+          <div class="aLink-card">
+          <span>${i}</span>
+          <div class="alink-titles">
+              <h3>${e.name}</h3>
+
+              <p><a class="aLink" href="${e.link}" target="_blank"
+                      rel="noopener noreferrer">${e.link}</a>
+              </p>
+          </div>
+      </div>
+          `;
+        }
+      }
+
+      internalButton.addEventListener("click", () => {
+        let cardStyle = document.querySelectorAll(".aLink-card");
+        let cardA = document.querySelectorAll(".aLink");
+        internalPopup.style = `opacity:100%; visibility:visible`;
+        cardStyle.forEach((e) => {
+          e.classList.add("skeleton");
+          setTimeout(() => {
+            e.classList.remove("skeleton");
+          }, 2000);
+        });
+        cardA.forEach((e) => {
+          e.style.opacity = "0%";
+          setTimeout(() => {
+            e.style.opacity = "100%";
+          }, 2000);
+        });
+      });
+
+      // todo working for externl Links
+      let externalLinkData, externalPopup, externalButton, externalLoop;
+      externalLinkData = externaLinks;
+      externalPopup = document.querySelector(".externalLinksPopup");
+      externalButton = document.querySelector(".externalButton");
+      externalLoop = document.querySelector(".externalLoop");
+
+      for (let i = 0; i < externalLinkData.length; i++) {
+        let e = externalLinkData[i];
+        if (i <= 9) {
+          externalLoop.innerHTML += `
+          <div class="aLink-card">
+          <span>0${i}</span>
+          <div class="alink-titles">
+              <h3>${e.name}</h3>
+
+              <p><a class="aLink" href="${e.link}" target="_blank"
+                      rel="noopener noreferrer">${e.link}</a>
+              </p>
+          </div>
+      </div>
+          `;
+        } else {
+          externalLoop.innerHTML += `
+          <div class="aLink-card">
+          <span>${i}</span>
+          <div class="alink-titles">
+              <h3>${e.name}</h3>
+
+              <p><a class="aLink" href="${e.link}" target="_blank"
+                      rel="noopener noreferrer">${e.link}</a>
+              </p>
+          </div>
+      </div>
+          `;
+        }
+      }
+
+      externalButton.addEventListener("click", () => {
+        let cardStyle = document.querySelectorAll(".aLink-card");
+        let cardA = document.querySelectorAll(".aLink");
+        externalPopup.style = `opacity:100%; visibility:visible`;
+        cardStyle.forEach((e) => {
+          e.classList.add("skeleton");
+          setTimeout(() => {
+            e.classList.remove("skeleton");
+          }, 2000);
+        });
+        cardA.forEach((e) => {
+          e.style.opacity = "0%";
+          setTimeout(() => {
+            e.style.opacity = "100%";
+          }, 2000);
+        });
+      });
+
       closeBtn.forEach((e) => {
         e.addEventListener("click", () => {
           popUpBox.forEach((e) => {
@@ -288,43 +416,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       } else if (request.headingFour >= 2) {
         headF.innerText = `Used for ${request.headingFour} times `;
       }
-
-      // todo this is for finidning all <a href links>
-      let internalExtension,
-        externalExtension,
-        hrefData,
-        internalLinks,
-        hrefArray,
-        externaLinks;
-      let url = request.url.charAt(0).toUpperCase() + request.url.slice(1);
-
-      internalExtension = document.querySelector(".internalData");
-      externalExtension = document.querySelector(".externalData");
-      hrefData = request.hrefLink;
-      hrefArray = [];
-      internalLinks = [];
-      externaLinks = [];
-      for (let i = 0; i < hrefData.length; i++) {
-        const element = hrefData[i][1];
-        hrefArray.push(element);
-      }
-
-      if (hrefArray.includes(url.toLowerCase())) {
-        console.log(hrefArray);
-      }
-
-      //  ? starting to work for internal links
-      hrefArray.forEach((e) => {
-        if (e.includes(url.toLowerCase())) {
-          internalLinks.push(e);
-        } else {
-          externaLinks.push(e);
-        }
-      });
-
-      internalExtension.innerHTML = `${internalLinks.length} Links Detected`;
-      externalExtension.innerHTML = ` ${externaLinks.length} Links Detected`;
-      //  ? starting to work for external links
 
       //todo loopping imageAlt card from here
       let imageAltParent = document.querySelector(".fsr-wrapper");
@@ -397,7 +488,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
           setTimeout(() => {
             if (imageAltParent.innerHTML.search("skeleton")) {
-              console.log("there is");
               imageAltParent.innerHTML += `
           <section class="fsr-card ">
           <div class="fsrc-wrapper">
