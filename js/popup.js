@@ -27,6 +27,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       // -----------------------------------------------------------
 
       // todo working on pageDescription and title
+      // document.body.prependChild(document.createElement('script')).src = 'https://cdn.jsdelivr.net/npm/apexcharts';
 
       // ** this is page title for chrome extension
       let pageTitle = document.querySelector(".meta-title");
@@ -504,6 +505,186 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
           }, 2000);
         }
       });
+
+      //  todo working with api of stats tab
+
+      let similarWebApi = async () => {
+        let statement = true;
+        if (statement === true) {
+          let websitename = request.website;
+          // let domain =websitename.match(/^(?:.*?\.)?([a-zA-Z0-9\-_]{3,}\.(?:\w{2,8}|\w{2,4}\.\w{2,4}))$/)[1];
+
+          let url = "https://data.similarweb.com/api/v1/data?domain=";
+          // ${domain}
+          let fetchingData = await fetch(`${url}google.com`)
+          let data = await fetchingData.json();
+
+          // todo sitenames
+          let siteName,
+            siteImageData,
+            siteRanking,
+            siteCountryRanking,
+            totalVisits,
+            vistsDuration,
+            pagesPerVisit,
+            bounceRate;
+          siteName = document.querySelector(".site-name");
+          siteImageData = document.querySelector(".site-imageData");
+          siteRanking = document.querySelector(".site-rankingData");
+          siteCountryRanking = document.querySelector(
+            ".site-CountryRankingData"
+          );
+          totalVisits = document.querySelector(".total-visits");
+          vistsDuration = document.querySelector(".visit-duration");
+          pagesPerVisit = document.querySelector(".pages-perVisit");
+          bounceRate = document.querySelector(".bounce-rate");
+          // todo---------------------------------------------------------------------
+          // ***********************************************************************
+          // ///////////////////////////////////////////////////////////////////////
+          // ***********************************************************************
+          // ///////////////////////////////////////////////////////////////////////
+          // ***********************************************************************
+
+          siteName.innerHTML = data.SiteName;
+          siteImageData.src = data.LargeScreenshot;
+
+          // this function will make 1000 to k 100000000 to million
+          function numFormatter(num) {
+            if (num > 999 && num < 1000000) {
+              return (num / 1000).toFixed(1) + "K"; // convert to K for number from > 1000 < 1 million
+            } else if (num > 1000000) {
+              return (num / 1000000).toFixed(1) + "M"; // convert to M for number from > 1 million
+            } else if (num > 1000000000) {
+              return (num / 1000000000).toFixed(1) + "B"; // convert to B for number from > 1 Billion
+            } else if (num < 900) {
+              return num; // if value < 1000, nothing to do
+            }
+          }
+          siteRanking.innerHTML = numFormatter(data.GlobalRank.Rank);
+          siteCountryRanking.innerHTML = numFormatter(data.CountryRank.Rank);
+          totalVisits.innerHTML = numFormatter(data.Engagments.Visits);
+
+          //  this function is for  time duration
+          function time(value) {
+            const sec = parseInt(value, 10); // convert value to number if it's string
+            let hours = Math.floor(sec / 3600); // get hours
+            let minutes = Math.floor((sec - hours * 3600) / 60); // get minutes
+            let seconds = sec - hours * 3600 - minutes * 60; //  get seconds
+            // add 0 if value < 10; Example: 2 => 02
+            if (hours < 10) {
+              hours = "0" + hours;
+            }
+            if (minutes < 10) {
+              minutes = "0" + minutes;
+            }
+            if (seconds < 10) {
+              seconds = "0" + seconds;
+            }
+            return hours + ":" + minutes + ":" + seconds; // Return is HH : MM : SS
+          }
+
+          vistsDuration.innerHTML = time(data.Engagments.TimeOnSite);
+          pagesPerVisit.innerHTML = parseFloat(
+            data.Engagments.PagePerVisit
+          ).toFixed(2);
+          let rate = data.Engagments.BounceRate * 100;
+
+          bounceRate.innerHTML = `${parseFloat(
+            data.Engagments.BounceRate * 100
+          ).toFixed(2)}%`;
+
+      
+          console.log(data);
+          let estimatedMonthlyVisits = data.EstimatedMonthlyVisits;
+        
+       
+
+          var options = {
+            series: [
+              {
+                name: "Page Visit",
+                data: [],
+                color: "#FFE59A",
+              },
+            ],
+            chart: {
+              width: "100%",
+              type: "area",
+              offsetX: -15,
+              toolbar: {
+                autoSelected: "pan",
+                show: false,
+              },
+            },
+            markers: {
+              size: 5,
+              colors: ["#ffffff"],
+              strokeColor: "#FFE59A",
+              strokeWidth: 2,
+            },
+
+            grid: {
+              show: false,
+              padding: {
+                left: 0,
+                right: 0,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+
+            stroke: {
+              curve: "smooth",
+              colors: ["#FFE59A"],
+            },
+            yaxis: {
+              labels: {
+                show: false,
+              },
+            },
+            xaxis: {
+              type: "datetime",
+              categories: [
+               
+              ],
+            },
+            tooltip: {
+              style: {
+                fontSize: "12px",
+              },
+              x: {
+                format: "dd/MM/yy",
+              },
+
+              theme: "dark",
+            },
+            fill: {
+              colors: ["#FFE59A"],
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 0.9,
+                opacityFrom: 0.6,
+                opacityTo: 0.1,
+                stops: [0, 90, 100],
+              },
+            },
+          };
+          for (var key in estimatedMonthlyVisits) {
+            if (estimatedMonthlyVisits.hasOwnProperty(key)) {
+               
+                options.xaxis.categories.push(key);
+                options.series[0].data.push(estimatedMonthlyVisits[key]);
+            }
+        }
+
+        console.log(options.xaxis.categories);
+          var chart = new ApexCharts(document.querySelector("#chart"), options);
+          chart.render();
+        }
+      };
+
+      similarWebApi();
 
       return true;
     }

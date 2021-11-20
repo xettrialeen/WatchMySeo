@@ -19,13 +19,16 @@
             "matches":[
                 "<all_urls>"
             ],
-            "js":["content.js"]
+            "js":["content.js","./js/apex.js"]
         }
-    ],
+    ],  
+
+  "web_accessible_resources": [ "https://cdn.jsdelivr.net/npm/apexcharts"],
     "background":{
         "scripts" : ["./js/background.js"]
     },
-    "permissions": [ "tabs", "http://*/*", "https://*/*", "storage", "activeTab" ]
+    "permissions": [ "tabs", "http://*/*", "https://*/*", "storage", "activeTab" ],
+    "content_security_policy": "script-src 'self' https://cdn.jsdelivr.net/npm/apexcharts; object-src 'self'"
    
    
     

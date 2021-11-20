@@ -90,6 +90,9 @@ function totalWordsCount() {
 
   return "No Articles Found!";
 }
+function websiteName() {
+  return window.location.hostname;
+}
 
 chrome.runtime.sendMessage({
   pageTitle: pageTitle(),
@@ -108,4 +111,5 @@ chrome.runtime.sendMessage({
   hrefLink: href(),
   imageAlts: imageAlt(),
   url: url(),
+  website:websiteName(),
 });

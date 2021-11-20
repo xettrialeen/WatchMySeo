@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watch My Seo</title>
     <link rel="stylesheet" href="./sass/main.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css">
+    <script src="./js/apex.js"></script>
 
 </head>
 
@@ -368,11 +369,104 @@
 
                 </div>
                 <div class="tab-panel tab2 stats">
-                    <h3>Comming SooN...</h3>
+                    <div class="tabTwo-wrapper">
+                        <div class="stats-header">
+                            <h2>Statistics</h2>
+                            <img src="./assets/icons/statsTab2.svg">
+                        </div>
+                        <div class="stats-body">
+                            <div class="sb-wrapper">
+                                <div class="site-image">
+                                    <img class="site-imageData " src="./assets/unsplash.png">
+                                </div>
+                                <div class="site-title">
+                                    <h3 >Sitename</h3>
+                                    <p class="site-name">Nothing Found...</p>
+                                </div>
+                                <div class="site-ranking">
+                                    <div class="sr-wrapper">
+                                        <section>
+                                            <div class="global-rank">
+                                                <img src="./assets/icons/world.svg" alt="">
+                                                <div class="gr-titles">
+                                                    <h3>Global Rank</h3>
+                                                    <span>worldwide</span>
+                                                </div>
+                                            </div>
+                                            <p class="site-rankingData">0</p>
+                                        </section>
+                                        <hr class="liner">
+                                        <section>
+                                            <div class="country-rank global-rank">
+                                                <span class="flag-icon flag-icon-np flag-icon-squared"></span>
+
+                                                <div class="gr-titles cr-titles">
+                                                    <h3>Country Rank</h3>
+                                                    <span>worldwide</span>
+                                                </div>
+                                            </div>
+                                            <p class="site-CountryRankingData">0</p>
+                                        </section>
+                                    </div>
+                                </div>
+                                <div class="site-traffic">
+                                    <h2>Traffic Overview</h2>
+
+                                    <div class="st-body">
+                                      <div class="stb-title">
+                                          <p>(this month)</p>
+                                        <h3>Engagement</h3>
+                                      </div>
+                                        <div class="traffic-data">
+                                            <div class="trafdata-wrapper">
+                                                <section class="td-firstSection">
+                                                    <p>Total Visits</p>
+                                                    <span class="total-visits">0</span>
+                                                </section>
+                                                <div class="line"></div>
+                                                <section class="td-section td-second-section">
+                                                    <div class="tds-title">
+                                                        <img src="./assets/icons/visitDuration.svg" alt="">
+                                                        <p>Avg. Visit Duration</p>
+                                                    </div>
+                                                    <span class="visit-duration">00:00:00</span>
+                                                </section>
+                                                <div class="line"></div>
+                                                <section class="td-section td-third-section">
+                                                    <div class="tds-title">
+                                                        <img src="./assets/icons/pagePerVisit.svg" alt="">
+                                                        <p>Pages per Visit</p>
+                                                    </div>
+                                                    <span class="pages-perVisit">0:00</span>
+                                                </section>
+                                                <div class="line"></div>
+                                                <section class="td-section td-fourth-section">
+                                                    <div class="tds-title">
+                                                        <img src="./assets/icons/bounceRate.svg" alt="">
+                                                        <p>Bounce Rate</p>
+                                                    </div>
+                                                    <span class="bounce-rate">00</span>
+                                                </section>
+                                                <div class="line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="traffic-stats">
+                                            <div  id="chart">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                     
+                    </div>
+
                 </div>
                 <div class="tab-panel tab3 donate">
 
-                    <div class="tabTwo-wrapper">
+                    <div class="tabThree-wrapper">
                         <div class="donation-link">
                             <div class="dl-wrapper">
                                 <h3>Donate through?</h3>
@@ -492,6 +586,8 @@
 
 
     <script src="./js/style.js"></script>
+
+    <script src="./js/chart.js"></script>
     <script src="./js/popup.js" async></script>
 </body>
 
