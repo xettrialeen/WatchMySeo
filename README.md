@@ -2,6 +2,8 @@
 
 WMS or watch my SEO is a chrome extension that peeks the data from websites you visit, then fetches the contents that are helpful for knowing about a website's SEO e.g., metadata, headings, HTTP STATUS, HREF links, and much more.
 
+![alt text](https://github.com/xettrialeen/WatchMySeo/blob/main/assets/wms.png)
+
 ## Installation
 
 The Chrome Extesnion can either be downloaded from this link.
