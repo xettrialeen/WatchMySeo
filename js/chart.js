@@ -50,22 +50,6 @@ let data = {
 
 
 
-var options = {
-    series: [44, 55, 41, 17, 15,34],
-    colors:["#f53b57","#ffa801","#0be881","#1e272e","#3c40c6","#ff3f34"],
-    labels: ['Social', 'Paid Referrals', 'Mail', 'Referrals',"Search", "Direct"],
-    chart: {
-    type: 'pie',
-  },
-  stroke: {
-     colors: ["#ffffff"],
-     width:"0",
-  },
 
- 
-  };
-
-  var chart2 = new ApexCharts(document.querySelector("#sourcesDiagram"), options);
-  chart2.render();
 
 

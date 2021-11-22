@@ -506,17 +506,22 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         }
       });
 
+      // ! this is stats tab
+      // todo working on popupstat button
+
       //  todo working with api of stats tab
 
       let similarWebApi = async () => {
         let statement = false;
         if (statement === true) {
           let websitename = request.website;
-          // let domain =websitename.match(/^(?:.*?\.)?([a-zA-Z0-9\-_]{3,}\.(?:\w{2,8}|\w{2,4}\.\w{2,4}))$/)[1];
+          let domain = websitename.match(
+            /^(?:.*?\.)?([a-zA-Z0-9\-_]{3,}\.(?:\w{2,8}|\w{2,4}\.\w{2,4}))$/
+          )[1];
 
           let url = "https://data.similarweb.com/api/v1/data?domain=";
           // ${domain}
-          let fetchingData = await fetch(`${url}techpana.com`)
+          let fetchingData = await fetch(`${url}techpana.com`);
           let data = await fetchingData.json();
 
           // todo sitenames
@@ -528,6 +533,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             vistsDuration,
             pagesPerVisit,
             bounceRate;
+
           siteName = document.querySelector(".site-name");
           siteImageData = document.querySelector(".site-imageData");
           siteRanking = document.querySelector(".site-rankingData");
@@ -593,11 +599,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             data.Engagments.BounceRate * 100
           ).toFixed(2)}%`;
 
-      
           console.log(data);
           let estimatedMonthlyVisits = data.EstimatedMonthlyVisits;
-        
-       
 
           var options = {
             series: [
@@ -645,9 +648,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             },
             xaxis: {
               type: "datetime",
-              categories: [
-               
-              ],
+              categories: [],
             },
             tooltip: {
               style: {
@@ -672,18 +673,70 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
           };
           for (var key in estimatedMonthlyVisits) {
             if (estimatedMonthlyVisits.hasOwnProperty(key)) {
-               
-                options.xaxis.categories.push(key);
-                options.series[0].data.push(estimatedMonthlyVisits[key]);
+              options.xaxis.categories.push(key);
+              options.series[0].data.push(estimatedMonthlyVisits[key]);
             }
-        }
+          }
 
-        console.log(options.xaxis.categories);
+          console.log(options.xaxis.categories);
           var chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
+
+          // this is piechart
+          let trafficSources = data.TrafficSources;
+          var options2 = {
+            series: [],
+            colors: [
+              "#f53b57",
+              "#ffa801",
+              "#0be881",
+              "#1e272e",
+              "#3c40c6",
+              "#ff3f34",
+            ],
+            labels: [],
+            chart: {
+              type: "pie",
+            },
+            stroke: {
+              colors: ["#ffffff"],
+              width: "0",
+            },
+          };
+
+          for (var key in trafficSources) {
+            if (trafficSources.hasOwnProperty(key)) {
+              options2.labels.push(key);
+              options2.series.push(trafficSources[key] * 100);
+            }
+          }
+          let pieDataDescription = document.querySelector(
+            ".trafficSourceDescription"
+          );
+          pieDataDescription.innerHTML = `${domain} is Searched with ${options2.series[0].toFixed(
+            2
+          )}% of traffic coming from this channel, followed by Direct with ${options2.series[5].toFixed(
+            2
+          )}% `;
+
+          var chart2 = new ApexCharts(
+            document.querySelector("#sourcesDiagram"),
+            options2
+          );
+          chart2.render();
+
+
+          let categoriesDescription = document.querySelector(
+            ".categoriesDescription"
+          );
+          categoriesDescription.innerHTML = `Users who visited ${domain} were also intrested in this category`;
+    
+          let rankedData= document.querySelector(".ranked-data");
+          rankedData.innerHTML= data.CategoryRank.Rank;
         }
       };
 
+    
       similarWebApi();
 
       return true;

@@ -6,6 +6,7 @@
   height: 100vh;
   overflow-y: scroll;
   top: 0px;
+  display: none;
 
   &::-webkit-scrollbar {
     display: none;

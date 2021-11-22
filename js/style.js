@@ -86,6 +86,7 @@ tabTwo.forEach((e) => {
       popupStats.style = `
   opacity: 1;
  visibility:visible;
+ transition:  all 0.3s ease-in-out;
   `;
     } else {
       popupStats.style = `
@@ -96,24 +97,57 @@ tabTwo.forEach((e) => {
   });
 });
 
-let localNames= [];
-let statsButton= document.querySelector(".statsButton");
-let value=0;
-statsButton.addEventListener("click", ()=>{
- 
- 
- localNames.push(value+=1);
- console.log(localNames);
+let statsButton = document.querySelector(".statsButton");
+let statQueryData= document.querySelector(".spw-title h3");
+let statsPopup= document.querySelector(".stats-popup");
+let localNames = [];
+let value = 0;
 
- 
-if (typeof(Storage) !== "undefined") {
-  // Store
+statsButton.addEventListener("click", () => {
+  // statsPopup.style=`visibility:hidden; opacity:0;`;
+  value++;
   
-  // Retrieve
-}
-localStorage.setItem("localNames",JSON.stringify(localNames) );
+  if (value < 6) {
+    statQueryData.innerHTML=`You’ve ${5-value} Queries remaining`;
+    // let stateChange = "";
+    let oldData = localStorage.getItem("localName");
+    if (oldData==="changeState") {
+      console.log(oldData);
+      return;
+      
+    }
+    localStorage.setItem("localName", "do");
+   
+    let data = oldData;
+   
+    if (value === 5) {
+      // localStorage.clear();
+      stateChange = "changeState";
+      localStorage.setItem("localName", stateChange);
+      // oldData = localStorage.getItem("localName");
+      // data = oldData;
+      
+    }
+   
+    console.log(data);
+    // let newData=JSON.stringify();
 
+    // // value++;
+    // let oldData = localStorage.getItem("localNames");
+    // let arr =JSON.parse(oldData)
+    // arr.push(value++);
+    // // arr=[ value++];
 
-})
+    // if (arr.length <=5 ) {
+    //   arr=[];
+    // value=0;
 
-console.log(localStorage.getItem("localNames"));
+    // }
+    // arr.push(value+=1);
+    // console.log(arr);
+    // let newData = JSON.stringify(arr);
+    // localStorage.setItem("localNames", newData);
+  }
+
+  // localStorage.clear();
+});
