@@ -1,6 +1,97 @@
+//*** this is stats popup
+.stats-popup {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  height: 100vh;
+  overflow-y: scroll;
+  top: 0px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }scroll-behavior: smooth;
+  background-color: #000000;
+  z-index: 99;
+  width: 414px;
+  left: 0px;
+  .sp-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 70px;
+    .spw-title {
+      margin-top: 24px;
+
+      h3 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 36px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.01em;
+
+        color: #ffffff;
+      }
+      p {
+        margin-top: 12px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.01em;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+    button {
+      margin-top: 30px;
+      width: 100%;
+      height: 57px;
+      cursor: pointer;
+      border: none;
+      background: #fdbd52;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -o-border-radius: 4px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: #161616;
+
+      &:hover{
+        opacity: 93%;
+      }
+      transition: opacity 0.3s ease-in-out;
+      -webkit-transition: opacity 0.3s ease-in-out;
+      -moz-transition: opacity 0.3s ease-in-out;
+      -ms-transition: opacity 0.3s ease-in-out;
+      -o-transition: opacity 0.3s ease-in-out;
+}
+
+.animation-dog{
+
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+  // background-color: #ac9c82;
+  width: 374px;
+  .lottie-player {
+    margin: 0 auto;
+}
+}
+  }
+}
+
+//*** this is heading popup
 .popupBox {
   position: fixed;
   opacity: 0;
+  top: 0px;
   visibility: hidden;
   height: 100vh;
   overflow-y: scroll;
@@ -108,14 +199,14 @@
               word-wrap: break-word; /* Internet Explorer 5.5+ */
               opacity: 50%;
 
-                &:hover{
-                  opacity: 100%;
-                }
-                transition: opacity 0.3s ease-in-out;
-                -webkit-transition: opacity 0.3s ease-in-out;
-                -moz-transition: opacity 0.3s ease-in-out;
-                -ms-transition: opacity 0.3s ease-in-out;
-                -o-transition: opacity 0.3s ease-in-out;
+              &:hover {
+                opacity: 100%;
+              }
+              transition: opacity 0.3s ease-in-out;
+              -webkit-transition: opacity 0.3s ease-in-out;
+              -moz-transition: opacity 0.3s ease-in-out;
+              -ms-transition: opacity 0.3s ease-in-out;
+              -o-transition: opacity 0.3s ease-in-out;
               a {
                 color: #ffffff;
                 /* These are technically the same, but use both */
@@ -133,9 +224,7 @@
                 -moz-hyphens: auto;
                 -webkit-hyphens: auto;
                 hyphens: auto;
-                
-               
-}
+              }
             }
           }
         }

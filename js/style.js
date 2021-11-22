@@ -5,9 +5,6 @@ menuBtn.forEach((e) => {
   });
 });
 
-
-
-
 // popup donate
 let tabThreeBlur = document.querySelector(".ttw-body");
 let popupDonate = document.querySelector(".donation-link");
@@ -80,3 +77,43 @@ function findActiveElementAndRemoveIt(elem) {
 }
 
 initTab("body");
+
+let tabTwo = document.querySelectorAll(" .menuBtn ");
+let popupStats = document.querySelector(".stats-popup");
+tabTwo.forEach((e) => {
+  e.addEventListener("click", (j) => {
+    if (j.target.classList[0] === "menuBtn2") {
+      popupStats.style = `
+  opacity: 1;
+ visibility:visible;
+  `;
+    } else {
+      popupStats.style = `
+  opacity: 0;
+  visibility: hidden;
+  `;
+    }
+  });
+});
+
+let localNames= [];
+let statsButton= document.querySelector(".statsButton");
+let value=0;
+statsButton.addEventListener("click", ()=>{
+ 
+ 
+ localNames.push(value+=1);
+ console.log(localNames);
+
+ 
+if (typeof(Storage) !== "undefined") {
+  // Store
+  
+  // Retrieve
+}
+localStorage.setItem("localNames",JSON.stringify(localNames) );
+
+
+})
+
+console.log(localStorage.getItem("localNames"));

@@ -3,7 +3,13 @@
   width: 1px;
   border: 0;
 }
-
+.line {
+  background-color: rgb(97, 97, 97);
+  height: 1px;
+  border: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .tabTwo-wrapper {
   .stats-header {
     display: flex;
@@ -51,7 +57,7 @@
         p {
           font-style: normal;
           font-weight: normal;
-          font-size: 20px;
+          font-size: 16px;
           line-height: 30px;
           display: flex;
           align-items: center;
@@ -151,12 +157,12 @@
         }
       }
       .site-traffic {
-        h2 {
+        .tsw-title {
           margin-bottom: 20px;
           font-family: Poppins;
           font-style: normal;
           font-weight: 600;
-          font-size: 24px;
+          font-size: 22px;
           line-height: 36px;
           letter-spacing: 0.01em;
           color: #7affff;
@@ -191,16 +197,17 @@
           }
 
           .traffic-data {
+            background-color: #131313;
+            padding: 20px;
+            background: #131313;
+            border-radius: 11px;
+            -webkit-border-radius: 11px;
+            -moz-border-radius: 11px;
+            -ms-border-radius: 11px;
+            -o-border-radius: 11px;
             .trafdata-wrapper {
               display: flex;
               flex-direction: column;
-              .line {
-                background-color: rgb(97, 97, 97);
-                height: 1px;
-                border: 0;
-                margin-top: 20px;
-                margin-bottom: 20px;
-              }
 
               .td-firstSection {
                 display: flex;
@@ -321,26 +328,151 @@
       }
 
       .traffic-stats {
-        min-height: 300px;
-        max-height: 300px;
-        overflow-y: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        overflow-y: hidden;
         overflow-x: hidden;
         // background-color: #7affff;
         min-width: 374px;
-        margin: 0 auto;
-       
+
         #chart {
           width: 100%;
           height: 100%;
+          margin: 0 auto;
 
-       
-          
+          padding-left: 20px;
+        }
+      }
+
+      .traffic-data-sources {
+        .trafficSrc-wrapper {
+          h2 {
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 36px;
+            letter-spacing: 0.01em;
+            color: #7affff;
+            margin-bottom: 12px;
+          }
+          p {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+          }
+          .trafficSrc-chart {
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            min-width: 374px;
+          }
+        }
+      }
+
+      .audience-intrest {
+        margin-top: 43px;
+        h2 {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 22px;
+          line-height: 33px;
+          /* identical to box height */
+
+          letter-spacing: 0.01em;
+          margin-bottom: 21px;
+          color: #7affff;
+        }
+        h3 {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 30px;
+          display: flex;
+          align-items: center;
+          letter-spacing: 0.01em;
+          color: #ffffff;
+          margin-bottom: 12px;
+        }
+        p {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 24px;
+
+          color: rgba(255, 255, 255, 0.5);
+        }
+        .audience-card {
          
+          margin-top: 22px;
+          background-color: #131313;
+          border-radius: 11px;
+
+          -webkit-border-radius: 11px;
+          -moz-border-radius: 11px;
+          -ms-border-radius: 11px;
+          -o-border-radius: 11px;
+          .ac-wrapper {
+            padding: 20px;
+            h4 {
+          
+              font-style: normal;
+              font-weight: 500;
+              font-size: 20px;
+              line-height: 30px;
+
+              letter-spacing: 0.01em;
+              background: -webkit-linear-gradient(
+                0deg,
+                #ffe59a 0%,
+                #ffffd5 100%
+              );
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+            }
+            .acw-rank{
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              span {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 24px;
+
+                letter-spacing: 0.01em;
+              }
+              .acwr-title {
+                display: flex;
+                flex-direction: row;
+                img {
+                  margin-right: 8px;
+                  width: 24px;
+                  height: 24px;
+                  object-fit: cover;
+                }
+                p {
+                  font-style: normal;
+                  font-weight: normal;
+                  font-size: 16px;
+                  line-height: 24px;
+                  /* identical to box height */
+
+                  letter-spacing: 0.01em;
+                }
+              }
+            }
+          }
         }
       }
     }
   }
 }
-.apexcharts-tooltip-marker{
+.apexcharts-tooltip-marker {
   background-color: #7affff;
 }

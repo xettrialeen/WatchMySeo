@@ -29,7 +29,22 @@
     <div class="container">
 
         <div class="container-wrapper">
-
+            <!-- todo this is stats popup -->
+<div class="stats-popup">
+    <div class="sp-wrapper">
+       <div class="spw-title">
+           <h3>You’ve 5 Queries remaining</h3>
+           <p>Hello everyone.I’ve used similarwebapi, which limits daily api requests. That's why I’ve limited a bit. After the end of five queries, you just have to wait for 3 minutes to use it 💌. Thankyou! for choosing us.</p>
+       </div>
+     
+       <div class="animation-dog">
+        <lottie-player src="./json/girl.json" background="transparent"  speed="1"  style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+       </div>
+       <button class="statsButton">
+        Ok i understood!
+    </button>
+    </div>
+</div>
             <!-- todo this is  heading one popup -->
             <div class="tabs-popup popupBox headOneData">
                 <div class="pb-wrapper">
@@ -370,6 +385,7 @@
                 </div>
                 <div class="tab-panel tab2 stats">
                     <div class="tabTwo-wrapper">
+                     
                         <div class="stats-header">
                             <h2>Statistics</h2>
                             <img src="./assets/icons/statsTab2.svg">
@@ -410,7 +426,7 @@
                                     </div>
                                 </div>
                                 <div class="site-traffic">
-                                    <h2>Traffic Overview</h2>
+                                    <h2 class="tsw-title">Traffic Overview</h2>
 
                                     <div class="st-body">
                                       <div class="stb-title">
@@ -454,6 +470,38 @@
                                             <div  id="chart">
 
                                             </div>
+                                        </div>
+                                        <div class="traffic-data-sources">
+                                            <div class="trafficSrc-wrapper">
+                                                <h2 >Traffic Sources</h2>
+                                                <p>gadgetbytenepal.com is Searched with 79.77% of traffic coming from this channel, followed by Direct with 12.96%</p>
+                                            
+                                            <div class="trafficSrc-chart">
+                                                <div class="sourcesDiagram" id="sourcesDiagram"></div>
+                                            </div>
+                                            
+                                            </div>
+                                        </div>
+                                        <div class="audience-intrest">
+                                            <h2>Audience Interests</h2>
+                                            <h3>Categories</h3>
+                                            <p>Users who visited gadgetbytenepal.com were also intrested in this category</p>
+                                       
+                                            <div class="audience-card">
+                                              <div class="ac-wrapper">
+                                                <h4>Computers Electronics and  Technology</h4>
+                                                <div class="line"></div>
+                                                <section class="acw-rank">
+                                                    <div class="acwr-title">
+                                                        <img src="./assets/icons/bounceRate.svg" alt="">
+                                                        <p>Ranked</p>
+                                                    </div>
+                                                    <span class="ranked-data">4384</span>
+                                                </section>
+                                                <div class="line"></div>
+                                              </div>
+                                            </div>
+                                       
                                         </div>
                                     </div>
                                 </div>
@@ -586,7 +634,7 @@
 
 
     <script src="./js/style.js"></script>
-
+<script src="./js/lottiee.js"></script>
     <script src="./js/chart.js"></script>
     <script src="./js/popup.js" async></script>
 </body>

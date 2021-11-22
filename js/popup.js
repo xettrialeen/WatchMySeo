@@ -509,14 +509,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       //  todo working with api of stats tab
 
       let similarWebApi = async () => {
-        let statement = true;
+        let statement = false;
         if (statement === true) {
           let websitename = request.website;
           // let domain =websitename.match(/^(?:.*?\.)?([a-zA-Z0-9\-_]{3,}\.(?:\w{2,8}|\w{2,4}\.\w{2,4}))$/)[1];
 
           let url = "https://data.similarweb.com/api/v1/data?domain=";
           // ${domain}
-          let fetchingData = await fetch(`${url}google.com`)
+          let fetchingData = await fetch(`${url}techpana.com`)
           let data = await fetchingData.json();
 
           // todo sitenames

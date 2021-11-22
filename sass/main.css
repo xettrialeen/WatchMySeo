@@ -287,6 +287,14 @@ body::-webkit-scrollbar-thumb {
   border: 0;
 }
 
+.line {
+  background-color: #616161;
+  height: 1px;
+  border: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .tabTwo-wrapper .stats-header {
   display: flex;
   flex-direction: row;
@@ -330,7 +338,7 @@ body::-webkit-scrollbar-thumb {
 .tabTwo-wrapper .stats-body .sb-wrapper .site-title p {
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 30px;
   display: flex;
   align-items: center;
@@ -405,12 +413,12 @@ body::-webkit-scrollbar-thumb {
   letter-spacing: 0.01em;
   text-align: center;
 }
-.tabTwo-wrapper .stats-body .sb-wrapper .site-traffic h2 {
+.tabTwo-wrapper .stats-body .sb-wrapper .site-traffic .tsw-title {
   margin-bottom: 20px;
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 36px;
   letter-spacing: 0.01em;
   color: #7affff;
@@ -439,16 +447,19 @@ body::-webkit-scrollbar-thumb {
   color: #ffffff;
   margin-bottom: 22px;
 }
+.tabTwo-wrapper .stats-body .sb-wrapper .site-traffic .st-body .traffic-data {
+  background-color: #131313;
+  padding: 20px;
+  background: #131313;
+  border-radius: 11px;
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  -ms-border-radius: 11px;
+  -o-border-radius: 11px;
+}
 .tabTwo-wrapper .stats-body .sb-wrapper .site-traffic .st-body .traffic-data .trafdata-wrapper {
   display: flex;
   flex-direction: column;
-}
-.tabTwo-wrapper .stats-body .sb-wrapper .site-traffic .st-body .traffic-data .trafdata-wrapper .line {
-  background-color: #616161;
-  height: 1px;
-  border: 0;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 .tabTwo-wrapper .stats-body .sb-wrapper .site-traffic .st-body .traffic-data .trafdata-wrapper .td-firstSection {
   display: flex;
@@ -536,16 +547,126 @@ body::-webkit-scrollbar-thumb {
   color: #ffdde2;
 }
 .tabTwo-wrapper .stats-body .sb-wrapper .traffic-stats {
-  min-height: 300px;
-  max-height: 300px;
-  overflow-y: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow-y: hidden;
   overflow-x: hidden;
   min-width: 374px;
-  margin: 0 auto;
 }
 .tabTwo-wrapper .stats-body .sb-wrapper .traffic-stats #chart {
   width: 100%;
   height: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .traffic-data-sources .trafficSrc-wrapper h2 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 36px;
+  letter-spacing: 0.01em;
+  color: #7affff;
+  margin-bottom: 12px;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .traffic-data-sources .trafficSrc-wrapper p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .traffic-data-sources .trafficSrc-wrapper .trafficSrc-chart {
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 374px;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest {
+  margin-top: 43px;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest h2 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  /* identical to box height */
+  letter-spacing: 0.01em;
+  margin-bottom: 21px;
+  color: #7affff;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest h3 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest .audience-card {
+  margin-top: 22px;
+  background-color: #131313;
+  border-radius: 11px;
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  -ms-border-radius: 11px;
+  -o-border-radius: 11px;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest .audience-card .ac-wrapper {
+  padding: 20px;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest .audience-card .ac-wrapper h4 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  background: -webkit-linear-gradient(0deg, #ffe59a 0%, #ffffd5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest .audience-card .ac-wrapper .acw-rank {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest .audience-card .ac-wrapper .acw-rank span {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest .audience-card .ac-wrapper .acw-rank .acwr-title {
+  display: flex;
+  flex-direction: row;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest .audience-card .ac-wrapper .acw-rank .acwr-title img {
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.tabTwo-wrapper .stats-body .sb-wrapper .audience-intrest .audience-card .ac-wrapper .acw-rank .acwr-title p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+  letter-spacing: 0.01em;
 }
 
 .apexcharts-tooltip-marker {
@@ -1333,9 +1454,92 @@ body::-webkit-scrollbar-thumb {
   padding-bottom: 40px;
 }
 
+.stats-popup {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  height: 100vh;
+  overflow-y: scroll;
+  top: 0px;
+  scroll-behavior: smooth;
+  background-color: #000000;
+  z-index: 99;
+  width: 414px;
+  left: 0px;
+}
+.stats-popup::-webkit-scrollbar {
+  display: none;
+}
+.stats-popup .sp-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 70px;
+}
+.stats-popup .sp-wrapper .spw-title {
+  margin-top: 24px;
+}
+.stats-popup .sp-wrapper .spw-title h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+.stats-popup .sp-wrapper .spw-title p {
+  margin-top: 12px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.7);
+}
+.stats-popup .sp-wrapper button {
+  margin-top: 30px;
+  width: 100%;
+  height: 57px;
+  cursor: pointer;
+  border: none;
+  background: #fdbd52;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #161616;
+  transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+}
+.stats-popup .sp-wrapper button:hover {
+  opacity: 93%;
+}
+.stats-popup .sp-wrapper .animation-dog {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 374px;
+}
+.stats-popup .sp-wrapper .animation-dog .lottie-player {
+  margin: 0 auto;
+}
+
 .popupBox {
   position: fixed;
   opacity: 0;
+  top: 0px;
   visibility: hidden;
   height: 100vh;
   overflow-y: scroll;
