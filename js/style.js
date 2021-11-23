@@ -104,7 +104,7 @@ let localNames = [];
 let value = 0;
 
 statsButton.addEventListener("click", () => {
-  // statsPopup.style=`visibility:hidden; opacity:0;`;
+  statsPopup.style=`visibility:hidden; opacity:0;`;
   value++;
   
   if (value < 6) {
@@ -151,3 +151,8 @@ statsButton.addEventListener("click", () => {
 
   // localStorage.clear();
 });
+
+
+
+
+

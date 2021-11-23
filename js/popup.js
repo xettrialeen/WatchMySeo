@@ -512,7 +512,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       //  todo working with api of stats tab
 
       let similarWebApi = async () => {
-        let statement = false;
+        let statement = true;
         if (statement === true) {
           let websitename = request.website;
           let domain = websitename.match(
@@ -520,8 +520,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
           )[1];
 
           let url = "https://data.similarweb.com/api/v1/data?domain=";
-          // ${domain}
-          let fetchingData = await fetch(`${url}techpana.com`);
+
+          let fetchingData = await fetch(`${url}${domain}`);
           let data = await fetchingData.json();
 
           // todo sitenames
@@ -725,20 +725,34 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
           );
           chart2.render();
 
-
           let categoriesDescription = document.querySelector(
             ".categoriesDescription"
           );
           categoriesDescription.innerHTML = `Users who visited ${domain} were also intrested in this category`;
-    
-          let rankedData= document.querySelector(".ranked-data");
-          rankedData.innerHTML= data.CategoryRank.Rank;
+
+          let rankedData = document.querySelector(".ranked-data");
+          rankedData.innerHTML = data.CategoryRank.Rank;
         }
       };
 
-    
-      similarWebApi();
+      let statsButton = document.querySelector(".statsButton");
 
+      let childClass = document.querySelector(".sb-wrapper").children;
+      for (let i = 0; i < childClass.length; i++) {
+        const element = childClass[i];
+        element.classList.add("skeleton");
+      }
+      statsButton.addEventListener("click", () => {
+        setTimeout(() => {
+          similarWebApi();
+          console.log("this is");
+          for (let i = 0; i < childClass.length; i++) {
+            const element = childClass[i];
+            element.classList.remove("skeleton");
+          }
+        }, 4000);
+      
+      });
       return true;
     }
   );

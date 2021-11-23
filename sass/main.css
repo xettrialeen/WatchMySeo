@@ -1461,7 +1461,6 @@ body::-webkit-scrollbar-thumb {
   height: 100vh;
   overflow-y: scroll;
   top: 0px;
-  display: none;
   scroll-behavior: smooth;
   background-color: #000000;
   z-index: 99;
