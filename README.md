@@ -7,7 +7,7 @@ WMS or watch my SEO is a chrome extension that peeks the data from websites you 
 ## Installation
 
 The Chrome Extesnion can either be downloaded from this link.
-[Watch My SEO](https://github.com/xettrialeen/WatchMySeo/releases/download/v2.0.0/watchMySeo.zip).zip or goto the latest release then assets then download file containing watchmyseo.zip
+[Watch My SEO](https://github.com/xettrialeen/WatchMySeo/releases/download/v2.0.02/watchMySEO-2-22.zip).zip or goto the latest release then assets then download file containing watchmyseo.zip
 
 ```bash
 Download Watch My SEO FROM ABOVE LINK...
