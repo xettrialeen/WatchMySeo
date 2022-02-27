@@ -599,7 +599,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             data.Engagments.BounceRate * 100
           ).toFixed(2)}%`;
 
-          console.log(data);
+          // console.log(data);
           let estimatedMonthlyVisits = data.EstimatedMonthlyVisits;
 
           var options = {
@@ -678,7 +678,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             }
           }
 
-          console.log(options.xaxis.categories);
+          // console.log(options.xaxis.categories);
           var chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
 
@@ -745,7 +745,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       statsButton.addEventListener("click", () => {
         setTimeout(() => {
           similarWebApi();
-          console.log("this is");
+         
           for (let i = 0; i < childClass.length; i++) {
             const element = childClass[i];
             element.classList.remove("skeleton");

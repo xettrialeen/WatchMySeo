@@ -99,6 +99,7 @@ tabTwo.forEach((e) => {
 
 let statsButton = document.querySelector(".statsButton");
 let statQueryData= document.querySelector(".spw-title h3");
+let statQueryDescription= document.querySelector(".spw-title p")
 let statsPopup= document.querySelector(".stats-popup");
 let localNames = [];
 let value = 0;
@@ -109,6 +110,43 @@ statsButton.addEventListener("click", () => {
   
   if (value < 6) {
     statQueryData.innerHTML=`You’ve ${5-value} Queries remaining`;
+  if (value == 5) {
+    statQueryData.style=`text-align:center;`
+    statQueryData.innerHTML=`Timer Has Started`;
+  
+    function startTimer(duration, display) {
+      var timer = duration, minutes, seconds;
+      setInterval(function () {
+          minutes = parseInt(timer / 60, 10);
+          seconds = parseInt(timer % 60, 10);
+  
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+  
+          display.textContent = minutes + ":" + seconds;
+          statsButton.disabled = true;
+  
+          if (--timer < 0) {
+              // timer = duration;
+              timer=0;
+              if (timer===0) {
+                value=0;
+                statQueryData.style=`text-align:left;`
+                statQueryData.innerHTML=`You’ve ${5-value} Queries remaining`;
+               
+                statQueryDescription.style=`text-align:left;margin-top:12px; font-size:16px; font-weight:normal;`;
+                statQueryDescription.innerHTML=`Hello everyone.I’ve used similarwebapi, which limits daily api requests. That's why I’ve limited a bit. After the end of five queries, you just have to wait for 3 minutes to use it 💌. Thankyou! for choosing us.`;
+                statsButton.disabled =false;
+             
+              }
+
+          }
+      }, 1000);
+  }
+  var threeMinutes = 60 * 0.2;
+  statQueryDescription.style=`text-align:center;margin-top:50px; font-size:34px; font-weight:bold;`;
+startTimer(threeMinutes, statQueryDescription);
+  }
     // let stateChange = "";
     let oldData = localStorage.getItem("localName");
     if (oldData==="changeState") {
@@ -122,14 +160,15 @@ statsButton.addEventListener("click", () => {
    
     if (value === 5) {
       // localStorage.clear();
+      
       stateChange = "changeState";
       localStorage.setItem("localName", stateChange);
       // oldData = localStorage.getItem("localName");
       // data = oldData;
-      
+      console.log(data);
     }
-   
     console.log(data);
+  
     // let newData=JSON.stringify();
 
     // // value++;
